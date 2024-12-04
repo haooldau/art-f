@@ -1,0 +1,15 @@
+{
+  "short_name": "SparkleLive",
+  "name": "SparkleLive - 艺人演出数据管理平台",
+  "icons": [
+    {
+      "src": "/logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+} 

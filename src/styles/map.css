@@ -1,0 +1,65 @@
+.map-container {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.map-container svg {
+  width: 100%;
+  height: 100%;
+}
+
+.map-container path {
+  transition: all 0.3s ease;
+  fill: #1f2938;
+  stroke: #3d4754;
+  stroke-width: 1;
+}
+
+.map-container path.has-performances {
+  fill: #4c5563;
+}
+
+.map-container path.selected {
+  fill: #bf3737;
+  transition: all 0.3s ease;
+  animation: selectedProvince 0.3s ease forwards;
+}
+
+.map-container path:hover {
+  fill: #4c5563;
+}
+
+@keyframes selectedProvince {
+  0% {
+    fill: #4c5563;
+    filter: brightness(1);
+  }
+  50% {
+    fill: #bf3737;
+    filter: brightness(1.2);
+  }
+  100% {
+    fill: #bf3737;
+    filter: brightness(1);
+  }
+}
+
+.map-container path.artist-performance {
+  animation: artistProvince 0.3s ease forwards;
+}
+
+@keyframes artistProvince {
+  0% {
+    fill: #4c5563;
+    filter: brightness(1);
+  }
+  50% {
+    fill: #bf3737;
+    filter: brightness(1.2);
+  }
+  100% {
+    fill: #bf3737;
+    filter: brightness(1);
+  }
+} 

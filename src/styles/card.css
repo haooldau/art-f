@@ -1,0 +1,70 @@
+/* 3D 翻转效果所需的样式 */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* 确保翻转时背面是隐藏的 */
+.rotate-y-180 .backface-hidden {
+  backface-visibility: hidden;
+}
+
+.card {
+  @apply bg-black/50 backdrop-blur-sm rounded-xl p-6 border border-white/10 
+    transition-all duration-300 relative overflow-hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.card:hover::before {
+  left: 100%;
+}
+
+.card:hover {
+  @apply border-white/20 transform -translate-y-1 
+    shadow-[0_0_30px_rgba(255,255,255,0.1)];
+  transform: perspective(1000px) rotateX(5deg);
+}
+
+.card-content {
+  @apply opacity-0 transition-all duration-300 group-hover:opacity-100;
+  transform: translateY(20px);
+}
+
+.card:hover .card-content {
+  transform: translateY(0);
+}
+
+.card-icon {
+  @apply transform transition-all duration-300;
+}
+
+.card:hover .card-icon {
+  @apply scale-110 rotate-12;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
